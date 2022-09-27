@@ -5,6 +5,7 @@ const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
 	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 	const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
+	//Use for setting nav menu links (nav component)
 	const [location, setLocation] = useState({});
 	const [page, setPage] = useState({ page: '', links: [] });
 
@@ -17,7 +18,7 @@ const AppProvider = ({ children }) => {
 	const openSubmenu = (text, coordinates) => {
 		const page = sublinks.find(link => link.page === text);
 		setPage(page);
-		setLocation(coordinates);
+		setLocation(coordinates); //location === coordinates
 		setIsSubmenuOpen(true);
 	};
 	const closeSubmenu = () => {
